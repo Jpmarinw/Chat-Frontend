@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form action="#" th:action="@{/inserircontato}" th:object="${contato}" method="post">
+	<form action="#" th:action="@{/contato}" th:object="${contato}" method="post">
 	    <label for="nome">Nome</label>
 	    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
 	    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
