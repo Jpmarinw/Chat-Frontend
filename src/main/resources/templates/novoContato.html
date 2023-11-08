@@ -3,8 +3,52 @@
 <head> 
     <title>Novo Contato</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        /* Estilos para melhorar a aparência */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(0, 128, 128);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        span {
+            color: red;
+        }
+        
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
+	<h1>Novo Contato</h1>
 	<form action="#" th:action="@{/contato}" th:object="${contato}" method="post">
 	    <label for="nome">Nome</label>
 	    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
