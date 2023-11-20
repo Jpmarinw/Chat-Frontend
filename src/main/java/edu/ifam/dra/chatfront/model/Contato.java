@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Contato {
 	private Long id;
 	
+	
 	@NotBlank
 	private String nome;
 	@Email
@@ -69,6 +70,4 @@ public class Contato {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Enviar Mensagem</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 128, 128);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        table td {
+            background-color: #f0f0f0;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #e0e0e0;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Nova Mensagem</h1>
+   <form th:action="@{/mensagem}" th:object="${mensagem}" method="post">
+    <label for="conteudo">Conteúdo:</label>
+    <textarea th:field="*{conteudo}" id="conteudo" placeholder="Digite sua mensagem"></textarea>
+    <br>
+
+    <label for="emissor">Emissor</label>
+	    <input type="text" th:field="*{emissor}" id="emissor" placeholder="Emissor">
+	    <span th:if="${#fields.hasErrors('emissor')}" th:errors="*{emissor}"></span>
+	    <br>
+	    
+	    <label for="receptor">Receptor</label>
+	    <input type="text" th:field="*{receptor}" id="receptor" placeholder="Receptor">
+	    <span th:if="${#fields.hasErrors('receptor')}" th:errors="*{receptor}"></span>
+	    <br>
+
+    <input type="submit" value="Enviar Mensagem">
+</form>
+</body>
+</html>

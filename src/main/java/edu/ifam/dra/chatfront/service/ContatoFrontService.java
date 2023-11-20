@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import edu.ifam.dra.chatfront.model.Contato;
+import edu.ifam.dra.chatfront.model.Mensagem;
 
 @Service
 public class ContatoFrontService {
@@ -54,7 +55,7 @@ public class ContatoFrontService {
 	}
 	
 	public Contato putContato(long id, Contato contato) {
-RestTemplate restTemplate = new RestTemplate();
+		RestTemplate restTemplate = new RestTemplate();
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
@@ -69,7 +70,20 @@ RestTemplate restTemplate = new RestTemplate();
 	}
 	
 	public void deleteContato(long id){
+		RestTemplate restTemplate = new RestTemplate();
 		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		HttpEntity<Contato> requestBody = new HttpEntity<>(new Contato(), headers);
+
+		String urlPut = url + "/" + Long.toString(id);
+		ResponseEntity<Contato> response =
+				restTemplate.exchange(urlPut,
+						HttpMethod.DELETE,
+						requestBody,
+						Contato.class);
 	}
 	
 }

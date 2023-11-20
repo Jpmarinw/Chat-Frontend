@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
     <style>
-        /* Estilos para melhorar a aparência */
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -88,10 +88,8 @@
 		        <td class="align-middle" th:text="${contato.endereco}"></td>
 		        <td class ="align-middle">
 					
-					<form action="#" th:action="@{'/contato/{id}'(id=${contato.id})}" th:method="delete">
-						
+				<form action="#" th:action="@{'/contato/{id}'(id=${contato.id})}" th:method="delete" >
 						<button type="submit" class="btn">Excluir</button>
-						
 					</form>
 				</td>
 				
@@ -104,7 +102,22 @@
 					
 				</td>
 				
+				<td class="align-middle">
+				    <form th:action="@{'/mensagem/nova'}" th:method="get">
+				        <button type="submit" class="btn">Enviar Mensagem</button>
+				    </form>
+			</td>
+				
 		    </tr>
+		    
+		     <div>
+				 
+        <form action="/contato/novo" method="get">
+            <button type="submit" class="btn">Novo Contato</button>
+        </form>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(contatos)}">
 		    
 		</table>
 		

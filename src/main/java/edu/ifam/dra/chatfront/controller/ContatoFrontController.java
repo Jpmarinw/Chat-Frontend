@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import edu.ifam.dra.chatfront.model.Contato;
 import edu.ifam.dra.chatfront.service.ContatoFrontService;
 
@@ -59,7 +58,7 @@ public class ContatoFrontController {
     
     @DeleteMapping("/{id}")
     public String excluirContato(@PathVariable long id) {
-    	System.out.println("Excluindo: "+Long.toString(id));
+    	contatoFrontService.deleteContato(id);
     	return "redirect:/contato";
     }
 }
